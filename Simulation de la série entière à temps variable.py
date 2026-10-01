@@ -16,7 +16,7 @@ def f(t, y):
 
 
 # seuil de troncature
-N = 20
+N = 7
 # Polynôme de degré 4 : P(x) = -x^4  ->  b_4(0) = P''''(0) = -24
 y0 = np.zeros(N + 1)
 y0[4] = -24
@@ -26,7 +26,7 @@ def P(x):
     return -x**4
 
 
-# ---------------- Euler (même schéma que ton code) ----------------
+# Euler
 T = 0.3
 n_t = 3000
 temps = np.linspace(0, T, n_t)
@@ -41,7 +41,7 @@ for i in range(1, n_t):
         print("explosion du système tronqué vers t =", temps[i])
         break
 
-# ---------------- grille en x et référence ----------------
+# grille en x et référence 
 x_max = 2.5
 n_x = 400
 X = np.linspace(-x_max, x_max, n_x)
@@ -62,7 +62,7 @@ def u_serie(i):
         return np.exp(Z)
 
 
-# ---------------- animation ----------------
+# animation
 indices = np.linspace(0, int(0.97 * i_max), 80).astype(int)   # 80 images, on s arrete juste avant l explosion
 
 fig, ax1 = plt.subplots(figsize=(8, 5))
